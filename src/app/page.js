@@ -1,95 +1,87 @@
+'use client'
 import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const onChangeInput = (event) => {
+    const inputId = `#${event.target.id}`;
+    const viewId = inputId.replace("-input", "-view");
+    const inputValue = document.querySelector(inputId).value;
+    document.querySelector(viewId).textContent = inputValue;
+  }
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <div className="container">
+    <section className="profile-main">
+      <div className="profile-main-item profile-main-form">
+        <form action="">
+          <div className="input-container">
+            <label htmlFor="profile-photo">Foto de perfil:</label>
+            <input type="file" id="profile-photo" />
+          </div>
+          <div className="input-container">
+            <label htmlFor="name-input">Nombre:</label>
+            <input
+              type="text"
+              className="input-container-text"
+              id="name-input"
+              onKeyUp={onChangeInput}
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+          </div>
+          <div className="input-container">
+            <label htmlFor="email-input">Correo Electónico:</label>
+            <input
+              type="text"
+              className="input-container-text"
+              id="email-input"
+              onKeyUp={onChangeInput}
+            />
+          </div>
+          <div className="input-container">
+            <label htmlFor="phone-input">Teléfono:</label>
+            <input
+              type="text"
+              className="input-container-text"
+              id="phone-input"
+              onKeyUp={onChangeInput}
+            />
+          </div>
+        </form>
+      </div>
+      <div className="profile-main-item profile-main-view">
+        <div className="profile-main-view-image">
+          <img
+            src="/images/image.svg"
+            alt="Imagen de perfil"
+            className="img-profile"
+            width="250px"
+            height="250px"
+          />
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="profile-main-view-item">
+          <div className="profile-item">
+            <h2 id="name-view">Nombre</h2>
+          </div>
+          <div className="profile-item">
+            <img
+              src="/images/email.svg"
+              alt="Icono deCorreo Electónico"
+              width="25px"
+              height="25px"
+            />
+            <span id="email-view">Correo electrónico</span>
+          </div>
+          <div className="profile-item">
+            <img
+              src="/images/phone.svg"
+              alt="Icono de Teléfono"
+              width="25px"
+              height="25px"
+            />
+            <span id="phone-view">Teléfono</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   );
 }

@@ -40,3 +40,61 @@ a {
     color-scheme: dark;
   }
 }
+
+
+html{
+  font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  line-height: 1.5;
+  font-size: 1.6rem;
+}
+
+.container{
+  padding: 10%;
+}
+
+.profile-main{
+  display: flex;
+}
+.profile-main-item{
+  border: 1px solid #ddd;
+  width: 100%;
+  padding: 25px;
+}
+
+.profile-main-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-container-text{
+  padding: 8px 12px;
+  border: 1px solid #ece7e7;
+}
+.profile-main-view{
+  display: flex;
+}
+.profile-main-view-item{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+.profile-item{
+  display: flex;
+  justify-content:flex-end;
+  gap: 10px;
+}
